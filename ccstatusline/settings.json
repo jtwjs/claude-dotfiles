@@ -1,0 +1,90 @@
+{
+  "colorLevel": 2,
+  "compactThreshold": 60,
+  "defaultPadding": " ",
+  "flexMode": "full",
+  "gitCacheTtlSeconds": 5,
+  "globalBold": false,
+  "inheritSeparatorColors": false,
+  "installation": {
+    "installedVersion": "2.2.19",
+    "method": "pinned"
+  },
+  "lines": [
+    [
+      {
+        "color": "brightBlack",
+        "id": "1",
+        "type": "model"
+      },
+      {
+        "color": "brightRed",
+        "id": "3",
+        "type": "context-percentage"
+      },
+      {
+        "color": "white",
+        "commandPath": "__HOME__/.claude/statusline-5hr-segment.sh",
+        "id": "9f87ecd8-3d26-485c-a127-fe1c981a149a",
+        "preserveColors": true,
+        "timeout": 1000,
+        "type": "custom-command"
+      },
+      {
+        "color": "brightMagenta",
+        "id": "1c20dd0b-4b2d-40a0-8dc7-17a925d71418",
+        "type": "weekly-usage"
+      }
+    ],
+    [
+      {
+        "color": "brightGreen",
+        "id": "2b2bce38-c39a-475d-a10a-88704e41ceb5",
+        "type": "worktree-name"
+      },
+      {
+        "color": "brightWhite",
+        "id": "812e1e52-92f6-48ce-a3ca-e500a7cd2dce",
+        "type": "git-branch"
+      },
+      {
+        "id": "e1af0942-1051-4bb8-9131-b8d08615ac32",
+        "type": "git-clean-status"
+      },
+      {
+        "id": "03ce3b7a-821c-4875-ba1d-7799d85e2f59",
+        "type": "git-insertions"
+      },
+      {
+        "id": "339a762e-dd2b-401d-9e3d-73f6f29997d5",
+        "type": "git-deletions"
+      },
+      {
+        "color": "yellow",
+        "id": "12ce5cfa-b302-4ce1-b77a-49f317510342",
+        "type": "skills"
+      }
+    ],
+    []
+  ],
+  "minimalistMode": false,
+  "powerline": {
+    "autoAlign": true,
+    "continueThemeAcrossLines": true,
+    "enabled": false,
+    "endCaps": [],
+    "separatorInvertBackground": [
+      false
+    ],
+    "separators": [
+      ""
+    ],
+    "startCaps": [
+      "",
+      "",
+      ""
+    ],
+    "theme": "custom"
+  },
+  "version": 3
+}

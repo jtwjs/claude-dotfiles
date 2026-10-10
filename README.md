@@ -56,7 +56,7 @@ cd ~/orca/claude-dotfiles
 | **플러그인** | claude-harness, karpathy, understand-anything, claude-md-management, 그리고 각 마켓플레이스 | `claude/settings.json` (재시작하면 자동 설치) |
 | **전역 지침** | 모든 프로젝트에 적용되는 `CLAUDE.md` (한국어 격식체, 코딩 규율 등) | `claude/CLAUDE.md` |
 | **내가 만든·고친 스킬** | grill-me · notion-writing · slack-writing · redesign-existing-projects | `claude/skills/` |
-| **설치한 스킬 19개** | `npx skills`로 받은 디자인·백엔드 스킬들. 받은 그 버전 그대로 | `agents/skills/` |
+| **설치한 스킬 20개** | `npx skills`로 받은 디자인·백엔드 스킬들. 받은 그 버전 그대로(redesign-existing-projects는 내가 고친 본이 우선) | `agents/skills/` |
 | **MCP 서버** | context7 (라이브러리 문서 조회) | `claude/mcp-servers.json` |
 
 ## 옮기지 않는 것 (일부러)
