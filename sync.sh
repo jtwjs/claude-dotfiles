@@ -140,7 +140,7 @@ elif mode == "import":
             elif lm[name] != cfg:
                 print(f"⚠️  MCP {name} 설정이 레포와 다릅니다. 손으로 확인하세요(자동 변경 안 함)")
     with open(os.path.join(pend, "changed"), "w") as f:
-        f.write("\n".join(changed))
+        f.write("".join(c + "\n" for c in changed))
 PY
 }
 
