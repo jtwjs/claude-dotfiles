@@ -11,6 +11,7 @@ FIRST=0
 C="$HOME/.claude"
 A="$HOME/.agents"
 CCS="$HOME/.config/ccstatusline"
+STATUS_SCRIPTS="statusline-5hr-segment.sh statusline-skill-hints.sh"   # ccstatusline custom-command 가 부르는 스크립트
 MY_SKILL_SKIP="synced aside-browser"   # 계정 동기화 · Aside 앱 관리 → 옮기지 않음
 
 die() { echo "✋ $*" >&2; exit 1; }
@@ -148,7 +149,7 @@ PY
 if [ $FIRST -eq 0 ]; then
   settings_py export "$REPO"
   cp "$C/CLAUDE.md" "$REPO/claude/CLAUDE.md"
-  cp "$C/statusline-5hr-segment.sh" "$REPO/claude/statusline-5hr-segment.sh"
+  for s in $STATUS_SCRIPTS; do cp "$C/$s" "$REPO/claude/$s"; done
   rm -rf "$REPO/claude/skills" && mkdir -p "$REPO/claude/skills"
   for d in "$C"/skills/*/; do
     n="$(basename "$d")"
@@ -190,8 +191,10 @@ done
 
 settings_py import "$REPO"
 P="$REPO/.pending"
-cmp -s "$REPO/claude/statusline-5hr-segment.sh" "$C/statusline-5hr-segment.sh" 2>/dev/null \
-  || { echo "── statusline-5hr-segment.sh 변경 ──"; echo statusline >> "$P/changed"; }
+for s in $STATUS_SCRIPTS; do
+  cmp -s "$REPO/claude/$s" "$C/$s" 2>/dev/null \
+    || { echo "── $s 변경 ──"; echo "$s" >> "$P/changed"; }
+done
 
 if [ -s "$P/changed" ]; then
   echo
@@ -202,7 +205,7 @@ fi
 
 BK="$C/backups/dotfiles-$(date +%Y%m%d-%H%M%S)"
 mkdir -p "$BK" && chmod 700 "$BK"
-for f in "$C/settings.json" "$CCS/settings.json" "$C/CLAUDE.md" "$C/statusline-5hr-segment.sh"; do
+for f in "$C/settings.json" "$CCS/settings.json" "$C/CLAUDE.md" $(for s in $STATUS_SCRIPTS; do printf '%s ' "$C/$s"; done); do
   [ -f "$f" ] && cp "$f" "$BK/" || true
 done
 
@@ -210,8 +213,9 @@ mkdir -p "$C/skills" "$CCS" "$A/skills"
 cp "$P/settings.json" "$C/settings.json"
 [ -f "$P/ccstatusline.json" ] && cp "$P/ccstatusline.json" "$CCS/settings.json"
 cp "$REPO/claude/CLAUDE.md" "$C/CLAUDE.md"
-cp "$REPO/claude/statusline-5hr-segment.sh" "$C/statusline-5hr-segment.sh"
-chmod +x "$C/statusline-5hr-segment.sh"
+for s in $STATUS_SCRIPTS; do
+  cp "$REPO/claude/$s" "$C/$s" && chmod +x "$C/$s"
+done
 
 for d in "$REPO"/claude/skills/*/; do
   n="$(basename "$d")"

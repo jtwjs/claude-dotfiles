@@ -49,7 +49,7 @@ cd ~/orca/claude-dotfiles
 
 | 무엇 | 쉽게 말하면 | 레포 위치 |
 |---|---|---|
-| **상태줄** | 화면 맨 아래 두 줄. 모델, 컨텍스트 %, 5시간 사용률, 주간 사용량, 브랜치, git 변경 | `ccstatusline/settings.json` · `claude/statusline-5hr-segment.sh` |
+| **상태줄** | 화면 맨 아래 세 줄. 모델, 컨텍스트 %, 5시간 사용률, 주간 사용량, 브랜치, git 변경, 그리고 claude-harness가 권하는 스킬(노란 배경, 권고가 있을 때만) | `ccstatusline/settings.json` · `claude/statusline-5hr-segment.sh` · `claude/statusline-skill-hints.sh` |
 | **모델·사고 강도** | 기본 모델과 effort 설정 | `claude/settings.json` |
 | **화면 모드** | 전체 화면(fullscreen) TUI | `claude/settings.json` |
 | **알림음** | 작업이 끝나면 Funk 소리, 입력이 필요하면 Glass 소리 | `claude/settings.json`의 hooks |

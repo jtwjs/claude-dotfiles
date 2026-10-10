@@ -65,7 +65,16 @@
         "type": "skills"
       }
     ],
-    []
+    [
+      {
+        "color": "white",
+        "commandPath": "__HOME__/.claude/statusline-skill-hints.sh",
+        "id": "372bf3a5-a6e8-442a-a4df-f0d3457739e9",
+        "preserveColors": true,
+        "timeout": 1000,
+        "type": "custom-command"
+      }
+    ]
   ],
   "minimalistMode": false,
   "powerline": {
