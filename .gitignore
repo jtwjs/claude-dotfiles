@@ -1,0 +1,11 @@
+# 정해진 것만 올린다 (허용 목록)
+/*
+!/.gitignore
+!/README.md
+!/sync.sh
+!/claude/
+!/ccstatusline/
+!/agents/
+.DS_Store
+*.bak
+.pending/
