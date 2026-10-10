@@ -5,6 +5,7 @@
     "andrej-karpathy-skills@karpathy-skills": true,
     "claude-harness@jtwjs-plugins": true,
     "claude-md-management@claude-plugins-official": true,
+    "plannotator@plannotator": true,
     "understand-anything@understand-anything": true
   },
   "extraKnownMarketplaces": {
@@ -23,6 +24,12 @@
     "karpathy-skills": {
       "source": {
         "repo": "forrestchang/andrej-karpathy-skills",
+        "source": "github"
+      }
+    },
+    "plannotator": {
+      "source": {
+        "repo": "backnotprop/plannotator",
         "source": "github"
       }
     },

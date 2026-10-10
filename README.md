@@ -14,6 +14,7 @@
 ```bash
 brew install jq oven-sh/bun/bun
 bun add -g ccstatusline@2.2.19
+curl -fsSL https://plannotator.ai/install.sh -o /tmp/pn-install.sh && bash /tmp/pn-install.sh --minimal --verify-attestation   # plannotator 바이너리만(훅·설정은 플러그인이 맡는다)
 ```
 
 Claude Code가 아직 없다면 먼저 설치하고 한 번 로그인합니다. 설치 방법: https://code.claude.com/docs/en/setup
@@ -55,7 +56,7 @@ cd ~/orca/claude-dotfiles
 | **알림음** | 작업이 끝나면 Funk 소리, 입력이 필요하면 Glass 소리 | `claude/settings.json`의 hooks |
 | **알림 토글** | 입력 대기 알림, 에이전트 푸시 알림 | `claude/settings.json` |
 | **미리 허용한 명령** | 묻지 않고 실행할 명령 목록(git·gh·pnpm 등) | `claude/settings.json`의 permissions |
-| **플러그인** | claude-harness, karpathy, understand-anything, claude-md-management, 그리고 각 마켓플레이스 | `claude/settings.json` (재시작하면 자동 설치) |
+| **플러그인** | claude-harness, karpathy, understand-anything, claude-md-management, plannotator(계획 승인을 브라우저 검토로 — 바이너리는 위 1단계), 그리고 각 마켓플레이스 | `claude/settings.json` (재시작하면 자동 설치) |
 | **전역 지침** | 모든 프로젝트에 적용되는 `CLAUDE.md` (한국어 격식체, 코딩 규율 등) | `claude/CLAUDE.md` |
 | **내가 만든·고친 스킬** | grill-me · notion-writing · slack-writing · redesign-existing-projects | `claude/skills/` |
 | **설치한 스킬 20개** | `npx skills`로 받은 디자인·백엔드 스킬들. 받은 그 버전 그대로(redesign-existing-projects는 내가 고친 본이 우선) | `agents/skills/` |
