@@ -206,7 +206,7 @@ for f in "$C/settings.json" "$CCS/settings.json" "$C/CLAUDE.md" "$C/statusline-5
   [ -f "$f" ] && cp "$f" "$BK/" || true
 done
 
-mkdir -p "$C" "$CCS" "$A/skills"
+mkdir -p "$C/skills" "$CCS" "$A/skills"
 cp "$P/settings.json" "$C/settings.json"
 [ -f "$P/ccstatusline.json" ] && cp "$P/ccstatusline.json" "$CCS/settings.json"
 cp "$REPO/claude/CLAUDE.md" "$C/CLAUDE.md"
