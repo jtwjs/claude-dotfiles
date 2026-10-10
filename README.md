@@ -41,6 +41,8 @@ cd ~/orca/claude-dotfiles
 2. `/status`로 설정이 어디서 왔는지 확인합니다.
 3. 아래 「새 맥에서 직접 켜야 하는 것」을 필요한 만큼 켭니다.
 
+> 💡 새 맥에서 처음 실행하면 Claude Code가 설정을 자기 형식으로 한 번 바꿀 수 있습니다(예: 모델 이름 `opus` → `opus[1m]`). 그래서 첫 `./sync.sh`에서 "변경이 있다"며 멈출 수 있습니다. `git diff`로 보고 그대로 둘 거면 `git checkout -- .` 후 다시 `./sync.sh`, 저쪽 값이 맞으면 commit·push 하면 됩니다.
+
 ---
 
 ## 무엇이 옮겨지나
