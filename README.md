@@ -36,7 +36,7 @@ cd ~/orca/claude-dotfiles && ./sync.sh --first
 | 모델·effort, 전체 화면 TUI, 알림 토글, 미리 허용한 명령, 알림음 훅 | `claude/settings.json` |
 | 플러그인 5개: claude-harness, karpathy-skills, understand-anything, claude-md-management, plannotator | `claude/settings.json` |
 | 전역 `CLAUDE.md` | `claude/CLAUDE.md` |
-| 내 스킬 4개: grill-me, notion-writing, slack-writing, redesign-existing-projects | `claude/skills/` |
+| 내 스킬 4개: grill-me(→ `claude-harness:why-plan` 스텁), notion-writing, slack-writing, redesign-existing-projects | `claude/skills/` |
 | `npx skills`로 받은 스킬 20개(같은 이름이면 내 스킬이 우선) | `agents/skills/` |
 | MCP 서버 context7 | `claude/mcp-servers.json` |
 
