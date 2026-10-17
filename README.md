@@ -49,7 +49,7 @@ cd ~/orca/claude-dotfiles && ./sync.sh --first
 ```
 1. Claude Code 설치 → claude 로그인(구독 계정. launchd의 claude -p 도 이 로그인으로 돈다)
 2. 위 빠른 시작 → ./sync.sh --first
-3. gh auth login 두 번(jtw-219 · jtwjs) → claude-env-private clone → ./bootstrap.sh
+3. gh auth login(개인 jtwjs + 새 회사 계정) → claude-env-private clone → ./bootstrap.sh (새 회사는 portable 만 · 같은 회사 기기 교체는 --company <이름>)
 4. claude.ai 커넥터 다시 연결: Slack · Atlassian · GitBook · Claude Docs · Chrome 확장
 5. 확인: claude -p 로 Slack 자기 DM 1건 → 오면 루틴·자동화 잡이 돈다
 6. 새 계정이면 아티팩트를 claude-env-private/artifacts 에서 다시 올린다(URL이 바뀜 → map.tsv)
