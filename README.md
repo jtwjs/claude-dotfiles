@@ -34,13 +34,27 @@ cd ~/orca/claude-dotfiles && ./sync.sh --first
 |---|---|
 | 상태줄(모델·컨텍스트·사용량·브랜치·스킬 권고) | `ccstatusline/settings.json`, `claude/statusline-*.sh` |
 | 모델·effort, 전체 화면 TUI, 알림 토글, 미리 허용한 명령, 알림음 훅 | `claude/settings.json` |
-| 플러그인 5개: claude-harness, karpathy-skills, understand-anything, claude-md-management, plannotator | `claude/settings.json` |
+| 플러그인 4개 켬: claude-harness, karpathy-skills, claude-md-management, plannotator (understand-anything은 등록만, 꺼 둠) | `claude/settings.json` |
 | 전역 `CLAUDE.md` | `claude/CLAUDE.md` |
-| 내 스킬 4개: grill-me(→ `claude-harness:why-plan` 스텁), notion-writing, slack-writing, redesign-existing-projects | `claude/skills/` |
-| `npx skills`로 받은 스킬 20개(같은 이름이면 내 스킬이 우선) | `agents/skills/` |
+| 내 스킬 1개: grill-me(→ `claude-harness:why-plan` 스텁). 글쓰기 스킬은 하네스판이 정본 | `claude/skills/` |
+| `npx skills`로 받은 스킬 3개: find-skills, notion-cli, svg-logo-designer | `agents/skills/` |
 | MCP 서버 context7 | `claude/mcp-servers.json` |
 
-옮기지 않는 것: autoMode 규칙(회사 정보 포함), Orca 터미널 훅(Orca가 넣는다), aside-browser 스킬(Aside 앱 관리), 로그인·대화 기록·메모리·캐시, claude.ai 커넥터와 동기화 스킬(계정에 따라온다), 아래 키 3개.
+옮기지 않는 것: autoMode 규칙(회사 정보 포함), Orca 터미널 훅(Orca가 넣는다), aside-browser 스킬(Aside 앱 관리), 로그인·대화 기록·캐시, claude.ai 커넥터와 동기화 스킬(계정에 따라온다), 아래 키 3개.
+
+자동화 잡·launchd·상태 파일·메모리·아티팩트 원본은 회사 식별자가 섞여서 비공개 레포 `jtwjs/claude-env-private`가 맡는다(`bootstrap.sh`).
+
+## 새 맥 · 새 Claude 계정 체크리스트
+
+```
+1. Claude Code 설치 → claude 로그인(구독 계정. launchd의 claude -p 도 이 로그인으로 돈다)
+2. 위 빠른 시작 → ./sync.sh --first
+3. gh auth login 두 번(jtw-219 · jtwjs) → claude-env-private clone → ./bootstrap.sh
+4. claude.ai 커넥터 다시 연결: Slack · Atlassian · GitBook · Claude Docs · Chrome 확장
+5. 확인: claude -p 로 Slack 자기 DM 1건 → 오면 루틴·자동화 잡이 돈다
+6. 새 계정이면 아티팩트를 claude-env-private/artifacts 에서 다시 올린다(URL이 바뀜 → map.tsv)
+7. vault·작업 레포 clone(repos.tsv), 레포별 .env 는 env-keys.md 키 이름 보고 비밀번호 관리자에서 채운다
+```
 
 확인 생략 키 3개 `skipDangerousModePermissionPrompt`, `skipAutoPermissionPrompt`, `remoteControlAtStartup`는 필요하면 새 맥의 `~/.claude/settings.json`에 직접 넣는다.
 

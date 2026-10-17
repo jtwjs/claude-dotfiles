@@ -6,7 +6,7 @@
     "claude-harness@jtwjs-plugins": true,
     "claude-md-management@claude-plugins-official": true,
     "plannotator@plannotator": true,
-    "understand-anything@understand-anything": true
+    "understand-anything@understand-anything": false
   },
   "extraKnownMarketplaces": {
     "claude-plugins-official": {
