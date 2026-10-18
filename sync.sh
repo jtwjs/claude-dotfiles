@@ -11,7 +11,7 @@ FIRST=0
 C="$HOME/.claude"
 A="$HOME/.agents"
 CCS="$HOME/.config/ccstatusline"
-STATUS_SCRIPTS="statusline-5hr-segment.sh statusline-skill-hints.sh statusline-sdd.sh"   # ccstatusline custom-command 가 부르는 스크립트
+STATUS_SCRIPTS="statusline-5hr-segment.sh statusline-skill-hints.sh statusline-sdd.py"   # ccstatusline custom-command 가 부르는 스크립트
 EXTRA_FILES="bin/daily-hub daily-hub.json"   # 하루 마감 페이지 래퍼·설정(claude-harness scripts/daily-hub). 2026-10-18
 MY_SKILL_SKIP="synced aside-browser"   # 계정 동기화 · Aside 앱 관리 → 옮기지 않음
 

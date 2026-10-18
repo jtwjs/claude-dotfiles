@@ -63,11 +63,13 @@
         "color": "yellow",
         "id": "12ce5cfa-b302-4ce1-b77a-49f317510342",
         "type": "skills"
-      },
+      }
+    ],
+    [
       {
         "color": "white",
-        "commandPath": "__HOME__/.claude/statusline-sdd.sh",
-        "id": "ae81b511-44d2-4d07-8f03-205ec433ea97",
+        "commandPath": "__HOME__/.claude/statusline-sdd.py",
+        "id": "bfcf9243-28c7-417f-934a-4e3a36f79ce0",
         "preserveColors": true,
         "timeout": 1000,
         "type": "custom-command"
