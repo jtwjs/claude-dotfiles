@@ -11,7 +11,8 @@ FIRST=0
 C="$HOME/.claude"
 A="$HOME/.agents"
 CCS="$HOME/.config/ccstatusline"
-STATUS_SCRIPTS="statusline-5hr-segment.sh statusline-skill-hints.sh"   # ccstatusline custom-command 가 부르는 스크립트
+STATUS_SCRIPTS="statusline-5hr-segment.sh statusline-skill-hints.sh statusline-sdd.sh"   # ccstatusline custom-command 가 부르는 스크립트
+EXTRA_FILES="bin/daily-hub daily-hub.json"   # 하루 마감 페이지 래퍼·설정(claude-harness scripts/daily-hub). 2026-10-18
 MY_SKILL_SKIP="synced aside-browser"   # 계정 동기화 · Aside 앱 관리 → 옮기지 않음
 
 die() { echo "✋ $*" >&2; exit 1; }
@@ -152,6 +153,7 @@ if [ $FIRST -eq 0 ]; then
   for s in $STATUS_SCRIPTS; do cp "$C/$s" "$REPO/claude/$s"; done
   rm -rf "$REPO/claude/output-styles"
   [ -d "$C/output-styles" ] && cp -R "$C/output-styles" "$REPO/claude/output-styles"
+  for x in $EXTRA_FILES; do [ -f "$C/$x" ] && mkdir -p "$(dirname "$REPO/claude/$x")" && cp "$C/$x" "$REPO/claude/$x"; done
   rm -rf "$REPO/claude/skills" && mkdir -p "$REPO/claude/skills"
   for d in "$C"/skills/*/; do
     n="$(basename "$d")"
@@ -216,6 +218,8 @@ cp "$P/settings.json" "$C/settings.json"
 [ -f "$P/ccstatusline.json" ] && cp "$P/ccstatusline.json" "$CCS/settings.json"
 cp "$REPO/claude/CLAUDE.md" "$C/CLAUDE.md"
 [ -d "$REPO/claude/output-styles" ] && mkdir -p "$C/output-styles" && cp "$REPO"/claude/output-styles/*.md "$C/output-styles/"
+for x in $EXTRA_FILES; do [ -f "$REPO/claude/$x" ] && mkdir -p "$(dirname "$C/$x")" && cp "$REPO/claude/$x" "$C/$x"; done
+[ -f "$C/bin/daily-hub" ] && chmod +x "$C/bin/daily-hub"
 for s in $STATUS_SCRIPTS; do
   cp "$REPO/claude/$s" "$C/$s" && chmod +x "$C/$s"
 done

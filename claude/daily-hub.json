@@ -1,0 +1,6 @@
+{
+  "extraDirs": [
+    { "label": "vault 개념", "path": "~/wiki/2_LLMWiki/wiki/concepts" },
+    { "label": "내 말로", "path": "~/wiki/1_MyBrain/brain/reformulations" }
+  ]
+}

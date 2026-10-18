@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# ~/.claude/bin/daily-hub — 하루 마감 페이지를 만들고 연다. claude-harness scripts/daily-hub/daily_hub.py 를 부른다.
+#   daily-hub              오늘 페이지 생성 + 브라우저로 열기
+#   daily-hub 2026-10-17   그날 페이지
+#   daily-hub --no-open    만들기만(evening 루틴이 쓴다)
+# 연 날은 ~/.claude/daily/opened.log 에 한 줄 — 14일 중 연 날 수가 이 장치의 성공 기준(7일 이상, 3일 미만이면 접음). 2026-10-18.
+set -u
+PY="$HOME/.claude/plugins/marketplaces/jtwjs-plugins/scripts/daily-hub/daily_hub.py"
+[ -f "$PY" ] || { echo "daily_hub.py 없음: $PY (claude-harness 0.24.0 이상 필요)" >&2; exit 1; }
+open_it=1; args=()
+for a in "$@"; do [ "$a" = "--no-open" ] && open_it=0 || args+=("$a"); done
+line=$(python3 "$PY" "${args[@]}") || exit 1
+echo "$line"
+if [ "$open_it" = 1 ]; then
+  f="${line##*자세히: }"
+  open "$f" && echo "$(date '+%Y-%m-%d %H:%M') $f" >> "$HOME/.claude/daily/opened.log"
+fi
