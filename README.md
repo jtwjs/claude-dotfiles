@@ -40,8 +40,8 @@ cd ~/orca/claude-dotfiles && ./sync.sh --first
 | 플러그인 4개 켬: claude-harness, karpathy-skills, claude-md-management, plannotator (understand-anything은 등록만, 꺼 둠) | `claude/settings.json` |
 | 전역 `CLAUDE.md` | `claude/CLAUDE.md` |
 | output style (`finn-brief` 등) | `claude/output-styles/` |
-| 내 스킬 1개: grill-me(→ `claude-harness:why` 스텁. 하네스 0.22.0에서 why-plan이 없어져 10-18에 다시 걸었다). 글쓰기 스킬은 하네스판이 정본 | `claude/skills/` |
-| `npx skills`로 받은 스킬 3개: find-skills, notion-cli, svg-logo-designer | `agents/skills/` |
+| 내 스킬: grill-me(→ `claude-harness:why`) | `claude/skills/` |
+| `npx skills`로 받은 스킬: find-skills 등 | `agents/skills/` |
 | MCP 서버 context7 | `claude/mcp-servers.json` |
 
 옮기지 않는 것: autoMode 규칙(회사 정보 포함), Orca 터미널 훅(Orca가 넣는다), aside-browser 스킬(Aside 앱 관리), 로그인·대화 기록·캐시, claude.ai 커넥터와 동기화 스킬(계정에 따라온다), 아래 키 3개.
