@@ -36,6 +36,7 @@ cd ~/orca/claude-dotfiles && ./sync.sh --first
 | 모델·effort, 전체 화면 TUI, 알림 토글, 미리 허용한 명령, 알림음 훅 | `claude/settings.json` |
 | 플러그인 4개 켬: claude-harness, karpathy-skills, claude-md-management, plannotator (understand-anything은 등록만, 꺼 둠) | `claude/settings.json` |
 | 전역 `CLAUDE.md` | `claude/CLAUDE.md` |
+| output style (`finn-brief` 등) | `claude/output-styles/` |
 | 내 스킬 1개: grill-me(→ `claude-harness:why-plan` 스텁). 글쓰기 스킬은 하네스판이 정본 | `claude/skills/` |
 | `npx skills`로 받은 스킬 3개: find-skills, notion-cli, svg-logo-designer | `agents/skills/` |
 | MCP 서버 context7 | `claude/mcp-servers.json` |

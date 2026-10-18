@@ -91,6 +91,7 @@
       "effortLevel": "high"
     }
   },
+  "outputStyle": "finn-brief",
   "permissions": {
     "allow": [
       "Edit",

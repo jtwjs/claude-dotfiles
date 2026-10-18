@@ -43,7 +43,7 @@ CJ = os.path.join(home, ".claude.json")
 # 레포에 넣는 settings.json 키 (허용 목록). 이 밖의 키는 각 맥에 그대로 남는다
 KEEP = ["model", "effortLevel", "modelSettings", "tui", "statusLine", "hooks",
         "enabledPlugins", "extraKnownMarketplaces", "permissions",
-        "includeCoAuthoredBy", "inputNeededNotifEnabled", "agentPushNotifEnabled"]
+        "includeCoAuthoredBy", "inputNeededNotifEnabled", "agentPushNotifEnabled", "outputStyle"]
 SENSITIVE = ["hooks", "permissions", "enabledPlugins", "extraKnownMarketplaces"]
 
 def load(p, default=None):
@@ -150,6 +150,8 @@ if [ $FIRST -eq 0 ]; then
   settings_py export "$REPO"
   cp "$C/CLAUDE.md" "$REPO/claude/CLAUDE.md"
   for s in $STATUS_SCRIPTS; do cp "$C/$s" "$REPO/claude/$s"; done
+  rm -rf "$REPO/claude/output-styles"
+  [ -d "$C/output-styles" ] && cp -R "$C/output-styles" "$REPO/claude/output-styles"
   rm -rf "$REPO/claude/skills" && mkdir -p "$REPO/claude/skills"
   for d in "$C"/skills/*/; do
     n="$(basename "$d")"
@@ -213,6 +215,7 @@ mkdir -p "$C/skills" "$CCS" "$A/skills"
 cp "$P/settings.json" "$C/settings.json"
 [ -f "$P/ccstatusline.json" ] && cp "$P/ccstatusline.json" "$CCS/settings.json"
 cp "$REPO/claude/CLAUDE.md" "$C/CLAUDE.md"
+[ -d "$REPO/claude/output-styles" ] && mkdir -p "$C/output-styles" && cp "$REPO"/claude/output-styles/*.md "$C/output-styles/"
 for s in $STATUS_SCRIPTS; do
   cp "$REPO/claude/$s" "$C/$s" && chmod +x "$C/$s"
 done
