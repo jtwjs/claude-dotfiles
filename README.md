@@ -12,13 +12,15 @@
 
 | 레포 | 맡는 것 | 어디에 남나 | |
 |---|---|---|---|
-| [claude-dotfiles](https://github.com/jtwjs/claude-dotfiles) | 내 맥의 Claude Code 환경: 전역 CLAUDE.md, 상태줄, 플러그인 목록, 개인 스킬 | `~/.claude/` | 📍 지금 여기 |
-| [claude-harness](https://github.com/jtwjs/claude-harness) | 레포에서 AI와 일하는 방식: 스킬, 에이전트, 훅, 템플릿 | 플러그인 + 각 레포의 `.claude/`·`_brain/` | |
+| [claude-dotfiles](https://github.com/jtwjs/claude-dotfiles) | 내 맥의 Claude Code 환경: 전역 CLAUDE.md, 응답 말투(output style), 상태줄, 플러그인 목록, 개인 스킬 | `~/.claude/` | 📍 지금 여기 |
+| [claude-harness](https://github.com/jtwjs/claude-harness) | 레포에서 AI와 일하는 방식(작업 절차): 스킬, 에이전트, 훅, 템플릿, 스크립트 | 플러그인 + 각 레포의 `.claude/`·`_brain/` | |
 | [stack-kits](https://github.com/jtwjs/stack-kits) | 새 프로젝트의 코드 뼈대: kotlin-spring, nextjs, fullstack | 새 레포의 코드 | |
+
+경계: 작업 절차(SDD 단계처럼 순서가 있는 것)는 claude-harness, 그 밖의 개인 설정(말투·상태줄·래퍼)은 이 레포. 이 레포의 파일이 하네스 스크립트를 부르는 경우(상태줄 트랙 요약, `daily-hub`)는 설치된 하네스 경로(`~/.claude/plugins/marketplaces/jtwjs-plugins/`)를 쓴다.
 
 ## 빠른 시작
 
-새 맥에서 Claude Code를 설치하고 한 번 로그인한 뒤([설치 방법](https://code.claude.com/docs/en/setup)) 실행한다.
+새 맥에서 Claude Code를 설치하고 한 번 로그인한 뒤([설치 방법](https://code.claude.com/docs/en/setup)) 실행한다. 상태줄 3줄째와 `daily-hub`는 `python3`가 필요하다(Xcode 명령줄 도구의 `/usr/bin/python3`로 충분).
 
 ```bash
 brew install jq oven-sh/bun/bun
@@ -32,12 +34,13 @@ cd ~/orca/claude-dotfiles && ./sync.sh --first
 
 | 옮기는 것 | 레포 위치 |
 |---|---|
-| 상태줄(모델·컨텍스트·사용량·브랜치·스킬 권고) | `ccstatusline/settings.json`, `claude/statusline-*.sh` |
+| 상태줄 4줄: ① 모델·컨텍스트·5시간·주간 사용량 ② worktree·브랜치·변경 ③ SDD 진행·마지막 요청(지휘 자리면 트랙 요약) ④ 하네스 스킬 권고 | `ccstatusline/settings.json`, `claude/statusline-*` |
+| 하루 마감 페이지 래퍼 `daily-hub`(하네스 `scripts/daily-hub` 호출, 연 날 기록)와 설정(vault 학습 폴더) | `claude/bin/daily-hub`, `claude/daily-hub.json` |
 | 모델·effort, 전체 화면 TUI, 알림 토글, 미리 허용한 명령, 알림음 훅 | `claude/settings.json` |
 | 플러그인 4개 켬: claude-harness, karpathy-skills, claude-md-management, plannotator (understand-anything은 등록만, 꺼 둠) | `claude/settings.json` |
 | 전역 `CLAUDE.md` | `claude/CLAUDE.md` |
 | output style (`finn-brief` 등) | `claude/output-styles/` |
-| 내 스킬 1개: grill-me(→ `claude-harness:why-plan` 스텁). 글쓰기 스킬은 하네스판이 정본 | `claude/skills/` |
+| 내 스킬 1개: grill-me(→ `claude-harness:why` 스텁. 하네스 0.22.0에서 why-plan이 없어져 10-18에 다시 걸었다). 글쓰기 스킬은 하네스판이 정본 | `claude/skills/` |
 | `npx skills`로 받은 스킬 3개: find-skills, notion-cli, svg-logo-designer | `agents/skills/` |
 | MCP 서버 context7 | `claude/mcp-servers.json` |
 
@@ -81,4 +84,5 @@ cd ~/orca/claude-dotfiles && ./sync.sh --first
 ## 관리자용
 
 - 첫 적용 뒤 Claude Code가 설정 형식을 바꿔(예: `opus` → `opus[1m]`) 다음 `./sync.sh`가 멈출 수 있다. 버릴 거면 `git checkout -- .`, 맞으면 commit·push 한다.
-- 상태줄 스크립트를 추가하면 `sync.sh`의 `STATUS_SCRIPTS`에도 넣는다.
+- 상태줄 스크립트를 추가하면 `sync.sh`의 `STATUS_SCRIPTS`에, 그 밖의 단일 파일은 `EXTRA_FILES`에 넣는다. 안 넣으면 export도 import도 안 된다.
+- 하네스 스크립트를 부르는 파일은 하네스를 release한 뒤에야 새 맥에서 돈다(설치 경로를 읽기 때문). 하네스가 없으면 그 조각만 비고 오류는 내지 않는다.
