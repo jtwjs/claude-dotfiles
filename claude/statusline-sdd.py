@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # ~/.claude/statusline-sdd.py — ccstatusline custom-command(3줄째 한 조각). 창에 돌아왔을 때 "뭘 하던지 · 어디까지"를 한 줄로.
 #   트랙 ⛔admin 💤renderer 진행1   ← 지휘 자리(트랙 표가 있는 레포의 기준 worktree)일 때만. claude-harness tracks_status.py --compact
+#   bv-admin ⛔fe 진행1 · dash 진행2 ← 지휘 설정(~/.claude/conductor.json)의 seat 폴더면 대상 레포 전부(2026-10-31). 손댈 것 없으면 안 뜬다
 #   SDD be-empty-200 3/7 ▸ step     ← 레포 phases/*/index.json 중 미완료이면서 가장 최근에 바뀐 것. error·blocked면 ⛔
 #   💬 마지막 요청                   ← 세션 기록의 last-prompt 줄(사람이 친 요청, 플러그인 메시지 제외)
 # 좁은 화면: 터미널 폭을 재서(ccstatusline 과 같은 방식: 부모 프로세스 tty → stty) 넘치면
@@ -11,6 +12,7 @@ from pathlib import Path
 
 HARNESS = Path(os.environ.get("CLAUDE_HARNESS_ROOT") or Path.home() / ".claude/plugins/marketplaces/jtwjs-plugins")
 TRACKS = HARNESS / "skills/conductor/scripts/tracks_status.py"
+CONDUCTOR = HARNESS / "hooks/lib/conductor.py"
 SKIP = re.compile(r"^(The .* plugin sent a message|<)")
 
 
@@ -98,8 +100,11 @@ def main():
     cwd = (data.get("workspace") or {}).get("current_dir") or data.get("cwd") or ""
     root = run(["git", "-C", cwd, "rev-parse", "--show-toplevel"]) if cwd else ""
 
-    track = ""
-    if root and TRACKS.exists() and Path(root, ".claude/references/tracks.md").exists() \
+    track, track_w = "", 30
+    if cwd and TRACKS.exists() and CONDUCTOR.exists() and subprocess.run(
+            [sys.executable, "-I", str(CONDUCTOR), "is-seat", cwd], capture_output=True).returncode == 0:
+        track, track_w = run([sys.executable, "-I", str(TRACKS), "--compact"], cwd=cwd), 48   # 지휘 자리 — 대상 레포마다 한 조각
+    elif root and TRACKS.exists() and Path(root, ".claude/references/tracks.md").exists() \
             and run(["git", "-C", root, "rev-parse", "--git-dir"]) == ".git":   # 기준 worktree(지휘 자리)만
         track = run([sys.executable, "-I", str(TRACKS), "--compact"], cwd=root)
 
@@ -111,7 +116,7 @@ def main():
     for _ in range(6):   # 넘치면 줄인다: 요청 → 작업 이름 → 단계 → 요청 빼기
         parts = []
         if track:
-            parts.append(("\033[1;35m", clip(track, 30)))
+            parts.append(("\033[1;35m", clip(track, track_w)))
         if prog:
             task, d, t, step = prog
             name = clip(step.get("name", ""), step_w)
