@@ -36,7 +36,7 @@ cd ~/orca/claude-dotfiles && ./sync.sh --first
 |---|---|
 | 상태줄 4줄: ① 모델·컨텍스트·5시간·주간 사용량 ② worktree·브랜치·변경 ③ SDD 진행·마지막 요청(지휘 자리면 트랙 요약) ④ 하네스 스킬 권고 | `ccstatusline/settings.json`, `claude/statusline-*` |
 | 하루 마감 페이지 래퍼 `daily-hub`(하네스 `scripts/daily-hub` 호출, 연 날 기록)와 설정(vault 학습 폴더) | `claude/bin/daily-hub`, `claude/daily-hub.json` |
-| 모델·effort, 전체 화면 TUI, 알림 토글, 미리 허용한 명령, 알림음 훅 | `claude/settings.json` |
+| 모델·effort, Opus 5.5 자동 압축 400k(2026-10-31), 전체 화면 TUI, 알림 토글, 미리 허용한 명령, 알림음 훅 | `claude/settings.json` |
 | 플러그인 4개 켬: claude-harness, karpathy-skills, claude-md-management, plannotator (understand-anything은 등록만, 꺼 둠) | `claude/settings.json` |
 | 전역 `CLAUDE.md` | `claude/CLAUDE.md` |
 | output style (`finn-brief` 등) | `claude/output-styles/` |
