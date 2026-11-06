@@ -6,7 +6,8 @@
     "claude-harness@jtwjs-plugins": true,
     "claude-md-management@claude-plugins-official": true,
     "plannotator@plannotator": true,
-    "understand-anything@understand-anything": false
+    "postman@claude-plugins-official": true,
+    "understand-anything@understand-anything": true
   },
   "extraKnownMarketplaces": {
     "claude-plugins-official": {
@@ -16,6 +17,7 @@
       }
     },
     "jtwjs-plugins": {
+      "autoUpdate": false,
       "source": {
         "repo": "jtwjs/claude-harness",
         "source": "github"
