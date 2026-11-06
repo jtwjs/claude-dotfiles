@@ -93,7 +93,7 @@
       "effortLevel": "high"
     },
     "claude-opus-5-5": {
-      "autoCompactWindow": 400000
+      "autoCompactWindow": 300000
     }
   },
   "outputStyle": "finn-brief",
