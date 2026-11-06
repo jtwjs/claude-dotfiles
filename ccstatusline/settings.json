@@ -38,11 +38,6 @@
     ],
     [
       {
-        "color": "brightGreen",
-        "id": "2b2bce38-c39a-475d-a10a-88704e41ceb5",
-        "type": "worktree-name"
-      },
-      {
         "color": "brightWhite",
         "id": "812e1e52-92f6-48ce-a3ca-e500a7cd2dce",
         "type": "git-branch"
@@ -50,14 +45,6 @@
       {
         "id": "e1af0942-1051-4bb8-9131-b8d08615ac32",
         "type": "git-clean-status"
-      },
-      {
-        "id": "03ce3b7a-821c-4875-ba1d-7799d85e2f59",
-        "type": "git-insertions"
-      },
-      {
-        "id": "339a762e-dd2b-401d-9e3d-73f6f29997d5",
-        "type": "git-deletions"
       },
       {
         "color": "yellow",

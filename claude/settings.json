@@ -132,7 +132,7 @@
   "statusLine": {
     "command": "ccstatusline",
     "padding": 0,
-    "refreshInterval": 10,
+    "refreshInterval": 60,
     "type": "command"
   },
   "tui": "fullscreen"
