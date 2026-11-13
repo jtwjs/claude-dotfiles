@@ -17,7 +17,7 @@
       }
     },
     "jtwjs-plugins": {
-      "autoUpdate": false,
+      "autoUpdate": true,
       "source": {
         "repo": "jtwjs/claude-harness",
         "source": "github"
@@ -87,13 +87,19 @@
   },
   "includeCoAuthoredBy": false,
   "inputNeededNotifEnabled": true,
-  "model": "opus",
+  "model": "sonnet",
   "modelSettings": {
     "claude-fable-5-1": {
       "effortLevel": "high"
     },
     "claude-opus-5-5": {
       "autoCompactWindow": 300000
+    },
+    "claude-sonnet-5": {
+      "autoCompactWindow": 400000
+    },
+    "claude-sonnet-5-5": {
+      "autoCompactWindow": 200000
     }
   },
   "outputStyle": "finn-brief",

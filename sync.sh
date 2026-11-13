@@ -71,7 +71,8 @@ to_ph = lambda o: walk(o, lambda s: home_re.sub("__HOME__", s))
 from_ph = lambda o: walk(o, lambda s: s.replace("__HOME__", home))
 
 def is_orca(h):
-    return "ORCA_AGENT_HOOK" in h.get("command", "")
+    c = h.get("command", "")
+    return "ORCA_AGENT_HOOK" in c or ".orca/agent-hooks" in c   # PostCompact 훅은 앞 문자열이 없어 경로로도 거른다
 
 def split_hooks(hooks):
     """hooks 를 (Orca 제외분, Orca 분) 으로 나눈다. 빈 묶음·이벤트는 지운다"""
@@ -92,7 +93,8 @@ if mode == "export":
     dump(os.path.join(repo, "claude/settings.json"), to_ph(out))
     if os.path.exists(CCS):
         dump(os.path.join(repo, "ccstatusline/settings.json"), to_ph(load(CCS)))
-    mcp = (load(CJ, {}) or {}).get("mcpServers", {})
+    MCP_LOCAL_ONLY = {"idea"}   # 이 맥의 IDE 전용 로컬 주소라 옮기지 않는다
+    mcp = {k: v for k, v in ((load(CJ, {}) or {}).get("mcpServers", {})).items() if k not in MCP_LOCAL_ONLY}
     dump(os.path.join(repo, "claude/mcp-servers.json"), to_ph(mcp))
 
 elif mode == "import":
