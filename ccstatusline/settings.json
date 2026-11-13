@@ -50,6 +50,13 @@
         "color": "yellow",
         "id": "12ce5cfa-b302-4ce1-b77a-49f317510342",
         "type": "skills"
+      },
+      {
+        "color": "brightCyan",
+        "commandPath": "__HOME__/.claude/statusline-session-name.sh",
+        "id": "5e2b7c1a-3d84-4f6e-9a10-7c3d2b8e4f15",
+        "timeout": 1000,
+        "type": "custom-command"
       }
     ],
     [
