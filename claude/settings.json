@@ -5,8 +5,10 @@
     "andrej-karpathy-skills@karpathy-skills": true,
     "claude-harness@jtwjs-plugins": true,
     "claude-md-management@claude-plugins-official": true,
+    "jtwjs-desk@jtwjs-local": true,
     "plannotator@plannotator": true,
     "postman@claude-plugins-official": true,
+    "swift-lsp@claude-plugins-official": true,
     "understand-anything@understand-anything": true
   },
   "extraKnownMarketplaces": {
@@ -14,6 +16,12 @@
       "source": {
         "repo": "anthropics/claude-plugins-official",
         "source": "github"
+      }
+    },
+    "jtwjs-local": {
+      "source": {
+        "path": "__HOME__/.claude/local-marketplaces/jtwjs-local",
+        "source": "directory"
       }
     },
     "jtwjs-plugins": {
@@ -87,13 +95,14 @@
   },
   "includeCoAuthoredBy": false,
   "inputNeededNotifEnabled": true,
-  "model": "sonnet",
+  "model": "opus",
   "modelSettings": {
     "claude-fable-5-1": {
       "effortLevel": "high"
     },
     "claude-opus-5-5": {
-      "autoCompactWindow": 300000
+      "autoCompactWindow": 400000,
+      "effortLevel": "xhigh"
     },
     "claude-sonnet-5": {
       "autoCompactWindow": 400000
@@ -133,7 +142,8 @@
       "Bash(printf *)",
       "Bash(grep *)",
       "Bash(cat __HOME__/.config/claude-briefing/*)"
-    ]
+    ],
+    "defaultMode": "auto"
   },
   "statusLine": {
     "command": "ccstatusline",
