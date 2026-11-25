@@ -73,6 +73,8 @@ cd ~/orca/claude-dotfiles && ./sync.sh --first
 
 `--first`는 내보내기를 건너뛰고 받기만 한다. 재시작 후 플러그인이 안 보이면 `/reload-plugins`, 설정 출처는 `/status`로 본다.
 
+모델 선택이나 슬래시 명령(effort · autocompact 등)으로 바꾼 값은 `settings.json`의 `modelSettings`에 직접 써질 수 있어(추정) 내가 고치지 않은 변경이 diff에 섞일 수 있다. 모르는 변경이 보이면 커밋 전에 확인한다.
+
 ## 원칙·안전장치
 
 - 비밀값(API 키·토큰 모양)이나 회사 식별자가 보이면 `sync.sh`가 멈춘다.
