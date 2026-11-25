@@ -1,6 +1,6 @@
 {
   "agentPushNotifEnabled": true,
-  "effortLevel": "high",
+  "effortLevel": "medium",
   "enabledPlugins": {
     "andrej-karpathy-skills@karpathy-skills": true,
     "claude-harness@jtwjs-plugins": true,
