@@ -13,14 +13,14 @@
   "lines": [
     [
       {
-        "color": "brightBlack",
+        "color": "ansi256:218",
         "id": "1",
         "type": "model"
       },
       {
-        "color": "brightRed",
-        "id": "3",
-        "type": "context-percentage"
+        "color": "brightBlue",
+        "id": "30b6eb9d-a662-4c89-bdb1-d8e91d0d978e",
+        "type": "thinking-effort"
       },
       {
         "color": "white",
@@ -43,6 +43,7 @@
         "type": "git-branch"
       },
       {
+        "color": "white",
         "id": "e1af0942-1051-4bb8-9131-b8d08615ac32",
         "type": "git-clean-status"
       },
@@ -50,6 +51,14 @@
         "color": "yellow",
         "id": "12ce5cfa-b302-4ce1-b77a-49f317510342",
         "type": "skills"
+      },
+      {
+        "color": "brightRed",
+        "id": "c5a0e2f1-7b3d-4e8a-9f61-2d4b8c0e5a73",
+        "metadata": {
+          "hideZero": "true"
+        },
+        "type": "compaction-counter"
       },
       {
         "color": "brightCyan",

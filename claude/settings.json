@@ -1,6 +1,6 @@
 {
   "agentPushNotifEnabled": true,
-  "effortLevel": "xhigh",
+  "effortLevel": "high",
   "enabledPlugins": {
     "andrej-karpathy-skills@karpathy-skills": true,
     "claude-harness@jtwjs-plugins": true,
@@ -97,14 +97,10 @@
   "inputNeededNotifEnabled": true,
   "model": "opus",
   "modelSettings": {
-    "claude-fable-5-1": {
+    "claude-fable-5-2": {
       "effortLevel": "high"
     },
     "claude-opus-5-5": {
-      "autoCompactWindow": 400000,
-      "effortLevel": "xhigh"
-    },
-    "claude-sonnet-5": {
       "autoCompactWindow": 400000
     },
     "claude-sonnet-5-5": {
