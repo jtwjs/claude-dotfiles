@@ -40,7 +40,6 @@ cd ~/orca/claude-dotfiles && ./sync.sh --first
 | 플러그인 4개 켬: claude-harness, karpathy-skills, claude-md-management, plannotator (understand-anything은 등록만, 꺼 둠) | `claude/settings.json` |
 | 전역 `CLAUDE.md` | `claude/CLAUDE.md` |
 | output style (`finn-brief` 등) | `claude/output-styles/` |
-| 내 스킬: grill-me(→ `claude-harness:why`) | `claude/skills/` |
 | `npx skills`로 받은 스킬: find-skills 등 | `agents/skills/` |
 | MCP 서버 context7 | `claude/mcp-servers.json` |
 

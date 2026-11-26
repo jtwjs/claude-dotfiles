@@ -18,15 +18,6 @@
       "skillFolderHash": "4360360f674f12699a66fffa1ab80174abbca93b",
       "installedAt": "2026-09-16T14:37:27.876Z",
       "updatedAt": "2026-09-16T14:37:27.876Z"
-    },
-    "SVG Logo Designer": {
-      "source": "rknall/claude-skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/rknall/claude-skills.git",
-      "skillPath": "svg-logo-designer/SKILL.md",
-      "skillFolderHash": "d32ceba96946d695a40d7be78cc144d8ee7a6ac5",
-      "installedAt": "2026-10-12T02:44:05.013Z",
-      "updatedAt": "2026-10-12T02:44:05.013Z"
     }
   },
   "dismissed": {
