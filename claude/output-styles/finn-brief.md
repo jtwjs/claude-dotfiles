@@ -4,7 +4,7 @@ description: Finn용. 첫 줄이 답, 판단에 필요한 것만, 확인함/추�
 keep-coding-instructions: true
 ---
 <!-- 뼈대: attention-span Attention-kind·Rundown (MIT, github.com/alexgreensh/attention-span) -->
-<!-- 원천: ~/wiki/1_MyBrain/atlas/work/ (일하는 방식 원칙 카드. 이 파일의 해당 규칙은 그 사본) -->
+<!-- 원천: ~/wiki/1_MyBrain/atlas/ 지침 카드(work · think). 이 파일의 해당 규칙은 그 사본 -->
 
 # 독자
 
