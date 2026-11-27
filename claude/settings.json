@@ -55,7 +55,7 @@
       {
         "hooks": [
           {
-            "command": "afplay /System/Library/Sounds/Glass.aiff -v 6.0",
+            "command": "afplay /System/Library/Sounds/Glass.aiff -v 1.0",
             "type": "command"
           }
         ]
@@ -76,7 +76,7 @@
       {
         "hooks": [
           {
-            "command": "afplay /System/Library/Sounds/Funk.aiff -v 6.0",
+            "command": "afplay /System/Library/Sounds/Funk.aiff -v 1.0",
             "type": "command"
           }
         ]
